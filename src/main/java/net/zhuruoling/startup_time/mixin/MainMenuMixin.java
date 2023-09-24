@@ -18,8 +18,8 @@ public class MainMenuMixin {
 
     @Shadow @Final private ToastManager toastManager;
 
-    @Inject(method = "method_29338", at = @At("RETURN"))
-    void inj(CallbackInfo ci){
+    @Inject(method = "onFinishedLoading", at = @At("RETURN"))
+    void inj(MinecraftClient.LoadingContext loadingContext, CallbackInfo ci){
         long timeMillis = ManagementFactory.getRuntimeMXBean().getUptime();
         Text title = Text.of(String.format("游戏启动用时: %.1f秒",timeMillis / 1000.0));
         Text content = Text.of("打败了全国99.9%的玩家");
