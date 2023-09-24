@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "com.example.mixin",
+	"package": "net.zhuruoling.startup_time.mixin",
 	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"ExampleMixin"
+	"client": [
+		"MainMenuMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
