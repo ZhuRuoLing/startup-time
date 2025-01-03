@@ -22,7 +22,7 @@ public class MainMenuMixin {
     @Shadow @Final private ToastManager toastManager;
 
     @Inject(method = "onFinishedLoading", at = @At("RETURN"))
-    void inj(MinecraftClient.LoadingContext loadingContext, CallbackInfo ci){
+    void inj(MinecraftClient.LoadingContext loadingContext, CallbackInfo ci) {
         if (!isStartup) {
             return;
         }
