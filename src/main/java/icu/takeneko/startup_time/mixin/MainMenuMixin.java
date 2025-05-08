@@ -1,5 +1,7 @@
 package icu.takeneko.startup_time.mixin;
 
+import icu.takeneko.startup_time.ModConfig;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
 import net.minecraft.client.toast.ToastManager;
@@ -18,6 +20,9 @@ import java.lang.management.ManagementFactory;
 public class MainMenuMixin {
 
     @Unique
+    private static final ModConfig config = new ModConfig();
+
+    @Unique
     private static boolean isStartup = true;
     @Shadow @Final private ToastManager toastManager;
 
@@ -29,7 +34,7 @@ public class MainMenuMixin {
         long timeMillis = ManagementFactory.getRuntimeMXBean().getUptime();
         //Text title = Text.of(String.format("游戏启动用时: %.1f秒",timeMillis / 1000.0));
         Text title = Text.translatable("startup_time.time", timeMillis/1000.0);
-        Text content = Text.of("");
+        Text content = Text.of(config.messageContent);
         SystemToast.show(this.toastManager, SystemToast.Type.PERIODIC_NOTIFICATION, title, content);
         isStartup = false;
     }
