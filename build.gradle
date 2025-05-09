@@ -29,6 +29,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	implementation 'org.yaml:snakeyaml:2.2'
+	include "org.yaml:snakeyaml:2.2"
 }
 
 processResources {
