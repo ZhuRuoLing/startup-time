@@ -1,5 +1,6 @@
 package icu.takeneko.startup_time.mixin;
 
+import icu.takeneko.startup_time.Mod;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
 import net.minecraft.client.toast.ToastManager;
@@ -29,7 +30,7 @@ public class MainMenuMixin {
         long timeMillis = ManagementFactory.getRuntimeMXBean().getUptime();
         Text title = Text.translatable("startup_time.time", timeMillis/1000.0);
         Text content = Text.of("");
-        SystemToast.show(this.toastManager, SystemToast.Type.PERIODIC_NOTIFICATION, title, content);
+        SystemToast.show(this.toastManager, Mod.TYPE, title, content);
         isStartup = false;
     }
 }
