@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.14-SNAPSHOT'
+	id 'net.fabricmc.fabric-loom' version '1.16-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -19,10 +19,10 @@ loom {
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	modImplementation fabricApi.module("fabric-resource-loader-v0", "0.141.1+1.21.11")
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	implementation fabricApi.module("fabric-resource-loader-v0", "0.149.1+26.1.2")
 }
 
 processResources {
@@ -34,12 +34,12 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 25
 }
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
 }
 
 jar {
